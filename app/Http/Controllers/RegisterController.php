@@ -17,16 +17,22 @@ class RegisterController extends Controller
     {
         // Validate the registration form data
         $request->validate([
-            'name' => 'required|string|max:255',
+            'fName' => 'required|string|max:255',
+            'lName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            'passwordConf' => 'required|same:password',
+            
         ]);
+        
+
 
         // Create a new user in the database
         $user = User::create([
-            'name' => $request->name,
+            'fName' => $request->firstName,
+            'lName' => $request->lastName,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' => bcrypt($request->password),   
         ]);
 
         // TODO: Perform any additional actions after user registration, such as sending a welcome email
