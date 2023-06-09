@@ -108,4 +108,3 @@
   </div>
 </section>
 @endsection
-@yield('content')
