@@ -5,8 +5,8 @@ use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
-    public function index()
+    public function showTodoForm()
     {
-        return view('todos.index');
+        return view('todo');
     }
 }
