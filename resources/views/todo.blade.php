@@ -7,14 +7,32 @@
 <section class="vh-100 gradient-custom-2">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-
-            <form class="d-flex justify-content-center align-items-center mb-4">
+      <div class="col">      
+      <form class="d-flex justify-content-center align-items-center mb-1">
               <div class="form-outline flex-fill">
                 <input type="text" id="form2" class="form-control" />
-                <label class="form-label" for="form2">New task...</label>
+                <label class="form-label" for="form2">Task title</label>
               </div>
+              
+                <!-- Priority dropdown  -->
+                <div class="form-outline flex-fill ms-2 w-20">
+                  <select id="priority" class="form-select">
+                    <option value="high">High</option>
+                    <option value="middle">Middle</option>
+                    <option value="low">Low</option>
+                  </select>
+                  <label class="form-label" for="priority">Priority</label>
+                </div>
+              
+                <!-- Description textbox -->
+                <div class="form-outline flex-fill ms-2">
+                  <textarea id="description" class="form-control" rows="1"></textarea>
+                  <label class="form-label" for="description">Description</label>
+                </div>
               <button type="submit" class="btn btn-info ms-2">Add</button>
             </form>
+          </div>
+  
             <div class="card">
               <div class="card-header p-3">
                 <h5 class="mb-0"><i class="fas fa-tasks me-2"></i>Task List</h5>
