@@ -29,15 +29,17 @@ class RegisterController extends Controller
 
         // Create a new user in the database
         $user = User::create([
-            'fName' => $request->firstName,
-            'lName' => $request->lastName,
+            'fName' => $request->fName,
+            'lName' => $request->lName,
             'email' => $request->email,
-            'password' => bcrypt($request->password),   
+            'password' => bcrypt($request->password),  
         ]);
+        
 
         // TODO: Perform any additional actions after user registration, such as sending a welcome email
 
         // Redirect the user to the desired page
-        return redirect('/dashboard')->with('success', 'Registration successful. You can now log in.');
+        return redirect()->route('login')->with('success', 'Registration successful. You can now log in.');
+
     }
 }
