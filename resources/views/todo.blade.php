@@ -29,14 +29,9 @@
                   <textarea id="description" class="form-control" rows="1"></textarea>
                   <label class="form-label" for="description">Description</label>
                 </div>
-              <button type="submit" class="btn btn-info ms-2">Add</button>
+              <button type="submit" class="btn btn-info ms-2 mb-4 me-2">Add</button>
             </form>
           </div>
-  
-            <div class="card">
-              <div class="card-header p-3">
-                <h5 class="mb-0"><i class="fas fa-tasks me-2"></i>Task List</h5>
-              </div>
               <div class="card-body" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
             <table class="table text-white mb-0">
               <thead>
