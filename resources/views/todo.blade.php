@@ -2,36 +2,39 @@
   <link rel="stylesheet" href="{{ asset('styles.css') }}">
 </head>
 
-@extends('layouts\app')
+@extends('layouts.app')
+
 @section('content')
 <section class="vh-100 gradient-custom-2">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">      
-      <form class="d-flex justify-content-center align-items-center mb-1">
-              <div class="form-outline flex-fill">
-                <input type="text" id="form2" class="form-control" />
-                <label class="form-label" for="form2">Task title</label>
-              </div>
-              
-                <!-- Priority dropdown  -->
-                <div class="form-outline flex-fill ms-2 w-20">
-                  <select id="priority" class="form-select">
-                    <option value="high">High</option>
-                    <option value="middle">Middle</option>
-                    <option value="low">Low</option>
-                  </select>
-                  <label class="form-label" for="priority">Priority</label>
-                </div>
-              
-                <!-- Description textbox -->
-                <div class="form-outline flex-fill ms-2">
-                  <textarea id="description" class="form-control" rows="1"></textarea>
-                  <label class="form-label" for="description">Description</label>
-                </div>
-              <button type="submit" class="btn btn-info ms-2 mb-4 me-2">Add</button>
-            </form>
+        <form action="{{ route('tasks.store') }}" method="POST" class="d-flex justify-content-center align-items-center mb-1">
+          @csrf
+          <div class="form-outline flex-fill">
+            <input type="text" id="task_title" name="task_title" class="form-control" required>
+            <label class="form-label" for="task_title">Task title</label>
           </div>
+          
+          <div class="form-outline flex-fill ms-2 w-20">
+            <select id="priority" name="priority" class="form-select" required>
+              <option value="high">High</option>
+              <option value="middle">Middle</option>
+              <option value="low">Low</option>
+            </select>
+            <label class="form-label" for="priority">Priority</label>
+          </div>
+          
+          <div class="form-outline flex-fill ms-2">
+            <textarea id="description" name="description" class="form-control" rows="1" required></textarea>
+            <label class="form-label" for="description">Description</label>
+          </div>
+          
+          @csrf
+          
+          <button type="submit" class="btn btn-info ms-2 mb-4 me-2">Add</button>
+        </form>
+      </div>
               <div class="card-body" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
             <table class="table text-white mb-0">
               <thead>
@@ -121,3 +124,4 @@
   </div>
 </section>
 @endsection
+<?php include 'footer.php';?>

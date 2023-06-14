@@ -20,24 +20,24 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the task form data
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'due_date' => 'required|date',
-            'priority' => 'required|integer',
+        // Validate the form data
+        $validatedData = $request->validate([
+            'task_title' => 'required',
+            'priority' => 'required',
+            'description' => 'required',
         ]);
 
-        // Create a new task in the database
-        Task::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'due_date' => $request->due_date,
-            'priority' => $request->priority,
+        // Create a new Task instance with the validated form data
+        $task = new Task([
+            'task_title' => $validatedData['task_title'],
+            'priority' => $validatedData['priority'],
+            'description' => $validatedData['description'],
         ]);
 
-        return redirect('/tasks')->with('success', 'Task created successfully.');
+        // Save the task to the database
+        $task->save();
+
+        // Optionally, you can redirect the user to a different page
+        return redirect()->back()->with('success', 'Task added successfully!');
     }
-
-    // Add other methods like show(), edit(), update(), delete(), etc. as per your requirements
 }

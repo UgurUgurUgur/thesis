@@ -9,10 +9,10 @@ class CreateTodosTable extends Migration
     public function up()
     {
         Schema::create('todos', function (Blueprint $table) {
-            $table->increments('todo_id');
-            $table->string('name');
-            $table->dateTime('expiration_date');
-            $table->integer('status');
+            $table->id();
+            $table->string('task_title');
+            $table->string('priority');
+            $table->text('description');
             $table->timestamps();
         });
     }
