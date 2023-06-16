@@ -21,8 +21,16 @@ class RegisterController extends Controller
             'lName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'passwordConf' => 'required|same:password',
             
+        ], [
+            'fName.required' => 'First name is required.',
+            'lName.required' => 'Last name is required.',
+            'email.required' => 'Email is required.',
+            'email.email' => 'Invalid email format.',
+            'email.unique' => 'Email is already taken.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password must be at least 8 characters.',
+            'password.confirmed' => 'Passwords do not match.',
         ]);
         
 
