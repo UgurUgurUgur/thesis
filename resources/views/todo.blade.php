@@ -9,7 +9,9 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">      
-        <form id="taskForm" method="POST" class="d-flex justify-content-center align-items-center mb-1">
+       {{--  submit the form to the tasks store route action is always needed --}}
+      
+        <form id="taskForm" action="{{route('tasks.store')}}" method="POST" class="d-flex justify-content-center align-items-center mb-1">
           @csrf
           <div class="form-outline flex-fill">
             <input type="text" id="task_title" name="task_title" class="form-control" required>
