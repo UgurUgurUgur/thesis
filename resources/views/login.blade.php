@@ -31,9 +31,19 @@
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
+                                <div class="form-group"><div class="form-check d-flex justify-content-center align-items-center">
+                                  <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                                  <label class="form-check-label mb-0 ml-5px" for="remember">Remember Me
+                                  </label></div>
+                                
+                                  <div class="form-group"><button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button> </div>
+                                
 
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                
+                                
+                              </div>
                             </form>
+                            <br>
                             <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
                             <div class="d-flex justify-content-center text-center mt-4 pt-1">
                                 <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
