@@ -9,7 +9,7 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">      
-        <form id="taskForm" method="POST" class="d-flex justify-content-center align-items-center mb-1">
+        <form action="{{route('tasks.store')}}" id="taskForm" method="POST" class="d-flex justify-content-center align-items-center mb-1">
           @csrf
           <div class="form-outline flex-fill">
             <input type="text" id="task_title" name="task_title" class="form-control" required>
