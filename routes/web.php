@@ -36,7 +36,9 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 //controlpanel route
 Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->name('controlpanel');
 
-Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+Route::post('/profile', [ProfileController::class, 'Update'])->name('profileUpdate');
+
 
 
 

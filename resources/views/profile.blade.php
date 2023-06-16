@@ -1,25 +1,22 @@
-@extends ('layouts\app');
-<link rel="stylesheet" href="css\profile">
-<div class="container"> 
-    <div class="card"> 
-        <div class="info"> 
-            <span>Edit form</span> 
-            <button id="savebutton">edit</button> 
-        </div> 
-        <div class="forms"> 
-            <div class="inputs"> 
-                <span>First Name</span> 
-                <input type="text" readonly value="John"> 
-            </div> <div class="inputs"> 
-                <span>Last Name</span> 
-                <input type="text" readonly value="Doe"> 
-            </div> <div class="inputs"> 
-                <span>Email</span> 
-                <input type="text" readonly value="john.doe12@gmail.com"> 
-            </div> <div class="inputs"> 
-                <span>UserName</span> 
-                <input type="text" readonly value="johndoe12"> 
-            
-        </div> 
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Profile</div>
+                    <div class="card-body">
+                        <p><strong>User ID: {{$user->id}}</strong></p>
+                        <p><strong>First Name:</strong> {{ $user->fName }}</p>
+                        <p><strong>Last Name:</strong> {{ $user->lName }}</p>
+                        <p><strong>Email:</strong> {{ $user->email }}</p>
+                        <p><strong>Created At: {{$user->created_at}}</strong></p>
+
+                        <a href="/profileEdit" class="btn btn-primary">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+@endsection

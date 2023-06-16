@@ -3,12 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    //
-    public function profile()
+    public function show()
     {
-        return view('profile');
+        $user = Auth::user();
+
+        return view('profile', compact('user'));
+    }
+
+    public function update(Request $request)
+    {
+        $user = Auth::user();
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        // Update other fields as needed
+
+        $user->save();
+
+        return redirect()->route('profile')->with('success', 'Profile updated successfully.');
     }
 }
+
