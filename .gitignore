@@ -2,6 +2,12 @@
 .Rhistory
 .Rapp.history
 
+# ignore vendor folder
+vendor/
+
+# ignore .env file
+.env
+
 # Session Data files
 .RData
 .RDataTmp
