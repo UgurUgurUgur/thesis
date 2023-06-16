@@ -44,7 +44,7 @@
                                         
                                       </div> 
             
-                                      <button type="submit" class="btn btn-secondary btn-lg" value="send">Register</button>
+                                      <button type="submit" class="btn btn-outline-light btn-lg px-5" value="send">Register</button>
                                       
                                 </form>
                                 
@@ -55,7 +55,7 @@
                   
                     
                     <div class="mb-1">
-                        <p>Already have an account? <a href="/login" class=" fw-bold">Login</a>
+                        <p>Already have an account? <a href="/login" class="text-white-50 fw-bold">Login</a>
                         </p>
                     </div>
             </div>
