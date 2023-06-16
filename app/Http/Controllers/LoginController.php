@@ -26,11 +26,13 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication passed
             return redirect('/controlpanel');
-        }
+        } else {
+            return back()->withErrors([
+            'email' => 'Invalid credentials',
+            
+        ]);}
 
         // Authentication failed
-        return back()->withErrors([
-            'email' => 'Invalid credentials.',
-        ]);
+        
     }
 }
