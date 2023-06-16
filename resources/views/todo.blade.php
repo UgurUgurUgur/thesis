@@ -9,7 +9,7 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">      
-        <form action="{{ route('tasks.store') }}" method="POST" class="d-flex justify-content-center align-items-center mb-1">
+        <form id="taskForm" method="POST" class="d-flex justify-content-center align-items-center mb-1">
           @csrf
           <div class="form-outline flex-fill">
             <input type="text" id="task_title" name="task_title" class="form-control" required>
@@ -124,4 +124,34 @@
   </div>
 </section>
 @endsection
+<script>
+  document.getElementById('taskForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get the form data
+    var formData = new FormData(this);
+
+    // Send an AJAX request to the server
+    fetch('{{ route('tasks.store') }}', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-CSRF-TOKEN': '{{ csrf_token() }}' // Add CSRF token header
+      }
+    })
+    .then(response => {
+      // Handle the response as needed
+      if (response.ok) {
+        // Show a success message or update the UI
+        console.log('Task added successfully!');
+      } else {
+        // Show an error message or handle the error
+        console.error('Error adding task.');
+      }
+    })
+    .catch(error => {
+      console.error('An error occurred:', error);
+    });
+  });
+</script>
 <?php include 'footer.php';?>

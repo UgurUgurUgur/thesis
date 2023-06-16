@@ -36,8 +36,5 @@ class TaskController extends Controller
 
         // Save the task to the database
         $task->save();
-
-        // Optionally, you can redirect the user to a different page
-        return redirect()->back()->with('success', 'Task added successfully!');
     }
 }

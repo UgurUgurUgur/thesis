@@ -36,4 +36,5 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 // Todo Route
 Route::get('/todo', [TodoController::class, 'showTodoForm'])->name('todo');
 
+// Task route
 Route::post('/tasks', 'TaskController@store')->name('tasks.store');
