@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
+use App\Models\Todo;
 use Illuminate\Http\Request;
-use 
 
 class TaskController extends Controller
 {
