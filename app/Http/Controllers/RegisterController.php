@@ -17,21 +17,37 @@ class RegisterController extends Controller
     {
         // Validate the registration form data
         $request->validate([
-            'name' => 'required|string|max:255',
+            'fName' => 'required|string|max:255',
+            'lName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            
+        ], [
+            'fName.required' => 'First name is required.',
+            'lName.required' => 'Last name is required.',
+            'email.required' => 'Email is required.',
+            'email.email' => 'Invalid email format.',
+            'email.unique' => 'Email is already taken.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password must be at least 8 characters.',
+            'password.confirmed' => 'Passwords do not match.',
         ]);
+        
+
 
         // Create a new user in the database
         $user = User::create([
-            'name' => $request->name,
+            'fName' => $request->fName,
+            'lName' => $request->lName,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' => bcrypt($request->password),  
         ]);
+        
 
         // TODO: Perform any additional actions after user registration, such as sending a welcome email
 
         // Redirect the user to the desired page
-        return redirect('/dashboard')->with('success', 'Registration successful. You can now log in.');
+        return redirect()->route('login')->with('success', 'Registration successful. You can now log in.');
+
     }
 }

@@ -25,12 +25,14 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             // Authentication passed
-            return redirect('/dashboard');
-        }
+            return redirect('/controlpanel');
+        } else {
+            return back()->withErrors([
+            'email' => 'Invalid credentials',
+            
+        ]);}
 
         // Authentication failed
-        return back()->withErrors([
-            'email' => 'Invalid credentials.',
-        ]);
+        
     }
 }
