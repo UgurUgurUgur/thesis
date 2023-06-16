@@ -9,7 +9,7 @@
                             <div class="card-body text-center">
                   
                               <div class="mb-md-5 mt-md-4">
-                                <h2>Register</h2>
+                                <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
                                 
                             
                   
@@ -49,7 +49,7 @@
                                 </form>
                                 
                   
-                                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                                
                   
                             
                   

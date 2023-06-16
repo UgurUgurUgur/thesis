@@ -9,6 +9,7 @@
               <div class="mb-md-5 mt-md-4 pb-5">
                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                 <form method="POST" action="{{ route('login') }}">
+                  @csrf
                 
                 <div class="form-outline form-white mb-4">
                   <label class="form-label" for="email">Email</label>
@@ -23,10 +24,11 @@
                   
                 </div>
   
-                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                
   
                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
               </form>
+              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
                 <div class="d-flex justify-content-center text-center mt-4 pt-1">
                   <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
                   <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
