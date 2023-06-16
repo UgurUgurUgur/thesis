@@ -14,17 +14,5 @@ class ProfileController extends Controller
         return view('profile', compact('user'));
     }
 
-    public function update(Request $request)
-    {
-        $user = Auth::user();
-
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        // Update other fields as needed
-
-        $user->save();
-
-        return redirect()->route('profile')->with('success', 'Profile updated successfully.');
-    }
 }
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ControlpanelController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileEditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,9 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->name('controlpanel');
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
-Route::post('/profile', [ProfileController::class, 'Update'])->name('profileUpdate');
+
+
+Route::get('/profileEdit', [ProfileEditController::class, 'profileEdit'])->name('profileEdit');
 
 
 
