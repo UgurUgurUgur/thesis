@@ -9,8 +9,8 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Todo::all();
-        return view('tasks.index', compact('tasks'));
+        $todos = DB::table('todos')->get();
+        return view('todo', ['todos' => $todos]);
     }
 
     public function create()
@@ -22,19 +22,22 @@ class TaskController extends Controller
     {
         // Validate the form data
         $validatedData = $request->validate([
-            'task_title' => 'required',
+            'task_title' => 'required|string|max:255',
             'priority' => 'required',
-            'description' => 'required',
+            'description' => 'required|string|max:500',
         ]);
 
         // Create a new Task instance with the validated form data
-        $task = new Todo([
+        $task = Todo::create([
             'task_title' => $validatedData['task_title'],
             'priority' => $validatedData['priority'],
             'description' => $validatedData['description'],
-        ]);
+        ]);      
 
         // Save the task to the database
         $task->save();
+         // redirection
+    return redirect('/todo')->with('status', 'todo added');
     }
+   
 }

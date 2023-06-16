@@ -1,10 +1,14 @@
 <head>
   <link rel="stylesheet" href="{{ asset('styles.css') }}">
 </head>
-
 @extends('layouts.app')
-
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 @section('content')
+<head>
 <section class="vh-100 gradient-custom-2">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -44,85 +48,28 @@
                   <th scope="col">Actions</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="fw-normal">
-                 
-                  <td class="align-middle">
-                    <span>Call Sam For payments</span>
-                  </td>
-                  <td class="align-middle">
-                    <h6 class="mb-0"><span class="badge bg-danger">High priority</span></h6>
-                  </td>
-                  <td class="align-middle">
-                    <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                  </td>
-                </tr>
-                <tr class="fw-normal">
-                 
-                  <td class="align-middle">Make payment to Bluedart</td>
-                  <td class="align-middle">
-                    <h6 class="mb-0"><span class="badge bg-success">Low priority</span></h6>
-                  </td>
-                  <td class="align-middle">
-                    <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                  </td>
-                </tr>
-                <tr class="fw-normal">
-                
-                  <td class="align-middle">Office rent</td>
-                  <td class="align-middle">
-                    <h6 class="mb-0"><span class="badge bg-warning">Middle priority</span></h6>
-                  </td>
-                  <td class="align-middle">
-                    <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                  </td>
-                </tr>
-                <tr class="fw-normal">
-                 
-                  <td class="align-middle">Office grocery shopping</td>
-                  <td class="align-middle">
-                    <h6 class="mb-0"><span class="badge bg-danger">High priority</span></h6>
-                  </td>
-                  <td class="align-middle">
-                    <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                  </td>
-                </tr>
-                <tr class="fw-normal">
-                
-                  <td class="border-0 align-middle">Ask for Lunch to Clients</td>
-                  <td class="border-0 align-middle">
-                    <h6 class="mb-0"><span class="badge bg-success">Low priority</span></h6>
-                  </td>
-                  <td class="border-0 align-middle">
-                    <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                  </td>
-                </tr>
-              </tbody>
+              @if($todos->isEmpty())
+                  <p>No todos found.</p>
+                @if($todos->isEmpty())
+                  <p>No todos found.</p>
+                @endif
+              @else
+                <ul>
+                  @foreach($todos as $todo)
+                      <li>{{ $todo->task_title }}</li>
+                      <li>{{ $todo->priority }}</li>
+                      <li>{{ $todo->description }}</li>
+                  @endforeach
+                </ul>
+              @endif
             </table>
-
-
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </section>
+</head>
 @endsection
 <script>
   document.getElementById('taskForm').addEventListener('submit', function(event) {
@@ -154,4 +101,4 @@
     });
   });
 </script>
-<?php include 'footer.php';?>
+<head><?php include 'footer.php'; ?></head>
