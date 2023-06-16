@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
 use Illuminate\Http\Request;
+use App\Models\Todo;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Todo::all();
         return view('tasks.index', compact('tasks'));
     }
 
@@ -28,7 +28,7 @@ class TaskController extends Controller
         ]);
 
         // Create a new Task instance with the validated form data
-        $task = new Task([
+        $task = new Todo([
             'task_title' => $validatedData['task_title'],
             'priority' => $validatedData['priority'],
             'description' => $validatedData['description'],
