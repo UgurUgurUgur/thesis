@@ -39,13 +39,15 @@
                                       </div>
             
                                       <div class="form-outline form-white mb-4">
-                                        <label class="form-label" for="passwordConf">Confirm Password</label>
-                                        <input type="password" id="passwordConf" name="passwordConf" class="form-control form-control-md" />
+                                        <label class="form-label" for="password_confirmation">Confirm Password</label>
+                                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control form-control-md" />
                                         
                                       </div> 
             
                                       <button type="submit" class="btn btn-secondary btn-lg" value="send">Register</button>
+                                      
                                 </form>
+                                
                   
                                 <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
                   

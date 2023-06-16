@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ControlpanelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,8 @@ Route::post('/login', [LoginController::class, 'login']);
 
 // Logout Route
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+//controlpanel route
+Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->name('controlpanel');
+
+
+
