@@ -3,7 +3,7 @@
 .Rapp.history
 
 # ignore vendor folder
-vendor/
+/vendor
 
 # ignore .env file
 .env
