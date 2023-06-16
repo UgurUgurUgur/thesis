@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TodoController;
 use App\Http\Controllers\ControlpanelController;
 
 /*
@@ -32,6 +33,12 @@ Route::post('/login', [LoginController::class, 'login']);
 
 // Logout Route
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+// Todo Route
+Route::get('/todo', [TodoController::class, 'showTodoForm'])->name('todo');
+
+// Task route
+Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 //controlpanel route
 Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->name('controlpanel');
 

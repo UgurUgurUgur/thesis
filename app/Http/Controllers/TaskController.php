@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use 
 
 class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks.index', compact('tasks'));
+        $todos = DB::table('todos')->get();
+        return view('todo', ['todos' => $todos]);
     }
 
     public function create()
@@ -20,24 +21,24 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the task form data
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'due_date' => 'required|date',
-            'priority' => 'required|integer',
+        // Validate the form data
+        $validatedData = $request->validate([
+            'task_title' => 'required|string|max:255',
+            'priority' => 'required',
+            'description' => 'required|string|max:500',
         ]);
 
-        // Create a new task in the database
-        Task::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'due_date' => $request->due_date,
-            'priority' => $request->priority,
-        ]);
+        // Create a new Task instance with the validated form data
+        $task = Todo::create([
+            'task_title' => $validatedData['task_title'],
+            'priority' => $validatedData['priority'],
+            'description' => $validatedData['description'],
+        ]);      
 
-        return redirect('/tasks')->with('success', 'Task created successfully.');
+        // Save the task to the database
+        $task->save();
+         // redirection
+    return redirect('/todo')->with('status', 'todo added');
     }
-
-    // Add other methods like show(), edit(), update(), delete(), etc. as per your requirements
+   
 }
