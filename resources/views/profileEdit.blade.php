@@ -1,17 +1,21 @@
-<!-- resources/views/profile/edit.blade.php -->
-<h1>Edit Profile</h1>
+@extends('layouts.app')
 
-<form method="POST" action="{{ route('profileEdit') }}">
-    @csrf
-    <label for="fName">First Name:</label>
-    <input type="text" name="fName" id="fName" value="{{ $user->fName }}"><br>
-    <label for="LName">Last Name:</label>
-    <input type="text" name="lName" id="lName" value="{{ $user->lName }}"><br>
+@section('content')
+    <h1>Edit Profile</h1>
 
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" value="{{ $user->email }}"><br>
+    <form method="POST" action="{{ route('profileEdit') }}">
+        @csrf
+        <label for="fName">First Name:</label>
+        <input type="text" name="fName" id="fName" value="{{ $user->fName }}"><br>
+        <label for="lName">Last Name:</label>
+        <input type="text" name="lName" id="lName" value="{{ $user->lName }}"><br>
 
-    <!-- Add other fields as needed -->
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="{{ $user->email }}"><br>
 
-    <button type="submit">Update</button>
-</form>
+        <!-- Add other fields as needed -->
+
+        <button type="submit">Update</button>
+    </form>
+@endsection
+

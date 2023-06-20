@@ -40,7 +40,8 @@ Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->na
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
 
 
-Route::get('/profileEdit', [ProfileEditController::class, 'profileEdit'])->name('profileEdit');
+Route::get('/profileEdit', [ProfileEditController::class, 'showProfileEditForm'])->name('profileEdit');
+Route::post('/profileEdit', [ProfileEditController::class, 'profileEdit']);
 
 
 
