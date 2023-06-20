@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
     public function index()
     {
         $todos = DB::table('todos')->get();
-        return view('todo', ['todos' => $todos]);
+        return view('todo', compact('todos'));
     }
 
     public function create()
