@@ -46,4 +46,4 @@ Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->na
 Route::get('/tasks/{id}', [TaskController::class, 'view'])->name('tasks.view');
 
 // Delete task route
-Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.delete');
+Route::get('/tasksdelete/{id}', [TaskController::class, 'destroy'])->name('tasks.delete');
