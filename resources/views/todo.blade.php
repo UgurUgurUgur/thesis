@@ -24,7 +24,7 @@
           
           <div class="form-outline flex-fill ms-2 w-20">
             <select id="priority" name="priority" class="form-select" required>
-              <option value="high">High</option>
+               <option value="high">High</option>
               <option value="middle">Middle</option>
               <option value="low">Low</option>
             </select>
@@ -52,15 +52,10 @@
               </thead>
               @if($todos->isEmpty())
                   <p>No todos found.</p>
-                @if($todos->isEmpty())
-                  <p>No todos found.</p>
-                @endif
               @else
                 <ul>
                   @foreach($todos as $todo)
-                      <li>{{ $todo->task_title }}</li>
-                      <li>{{ $todo->priority }}</li>
-                      <li>{{ $todo->description }}</li>
+                    <li>{{ $todo->task_title }}</li>
                   @endforeach
                 </ul>
               @endif
