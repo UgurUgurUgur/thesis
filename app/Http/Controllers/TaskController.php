@@ -64,5 +64,4 @@ class TaskController extends Controller
         // Redirect back to the todo page
         return redirect()->route('todo')->with('status', 'Task deleted successfully');
     }
-
 }
