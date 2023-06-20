@@ -41,24 +41,30 @@
           <button type="submit" class="btn btn-info ms-2 mb-4 me-2">Add</button>
         </form>
       </div>
-              <div class="card-body" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
-            <table class="table text-white mb-0">
-              <thead>
-                <tr>
-                  <th scope="col">Task</th>
-                  <th scope="col">Priority</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
               @if($todos->isEmpty())
-                  <p>No todos found.</p>
+                <p>No todos found.</p>
               @else
                 <ul>
-                  @foreach($todos as $todo)
-                    <a href="" class="todolist">{{ $todo->task_title }}</a>
-                  @endforeach
+                    @foreach($todos as $todo)
+                        @php
+                            $high='<span class="badge bg-danger">High priority</span>';
+                            $middle='<span class="badge bg-warning">Middle priority</span>';
+                            $low='<span class="badge bg-success">Low priority</span>';
+                        @endphp
+                        <a href="" class="todolist">
+                            {{ $todo->task_title }}
+                            @if($todo->priority == "high") 
+                                {!! $high !!}
+                            @elseif($todo->priority == "middle")
+                                {!!$middle!!}
+                            @elseif($todo->priority == "low")
+                                {!!$low!!}
+                            @endif
+                        </a>
+                    @endforeach
                 </ul>
               @endif
+
             </table>
           </div>
         </div>
