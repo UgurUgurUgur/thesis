@@ -23,7 +23,7 @@ use App\Http\Controllers\ProfileEditController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Auth::routes();
 // Registration Routes
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
@@ -40,8 +40,9 @@ Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->na
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
 
 
-Route::get('/profileEdit', [ProfileEditController::class, 'showProfileEditForm'])->name('profileEdit');
-Route::post('/profileEdit', [ProfileEditController::class, 'profileEdit']);
+Route::get('/profileEdit', [ProfileEditController::class, 'showProfileEditForm']);
+Route::post('/profileEdit', [ProfileEditController::class, 'profileEdit'])->name('profileEdit');
+
 
 
 
