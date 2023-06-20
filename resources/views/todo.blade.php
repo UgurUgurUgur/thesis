@@ -55,7 +55,7 @@
               @else
                 <ul>
                   @foreach($todos as $todo)
-                    <li>{{ $todo->task_title }}</li>
+                    <a href="" class="todolist">{{ $todo->task_title }}</a>
                   @endforeach
                 </ul>
               @endif
