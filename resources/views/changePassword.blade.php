@@ -15,7 +15,8 @@
                     <br>
                         <label for="new_password">New Password:</label>
                         <input type="password" name="new_password" id="new_password"><br>
-                        <button type="submit">Change Password</button>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Change Password</button>
                     </form>
                 </div>
             </div>
