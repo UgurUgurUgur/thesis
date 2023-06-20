@@ -14,25 +14,21 @@ class ProfileEditController extends Controller
         $user = Auth::user();
         return view('profileEdit', compact('user'));
     }
-    public function profileEdit(Request $request)
-{
-    // Validate the login form data
-    $request->validate([
-        'email' => 'required|string|email',
-        'password' => 'required|string',
-    ]);
+    public function profileEdit(Request $request){
+        //validation rules
 
-    $user = Auth::user();
-
-    $user->fName = $request->input('fName');
-    $user->lName = $request->input('lName');
-    $user->email = $request->input('email');
-    // Update other fields as needed
-
-    $user->save();  
-
-    return redirect()->route('profile')->with('success', 'Profile updated successfully.');
-}
+        $request->validate([
+            'fName' =>'required|min:4|string|max:255',
+            'lName' =>'required|min:4|string|max:255',
+            'email'=>'required|email|string|max:255'
+        ]);
+        $user =Auth::user();
+        $user->fName = $request['fName'];
+        $user->lName = $request['lName'];
+        $user->email = $request['email'];
+        $user->save();
+        return redirect()->route('profile')->with('message','Profile Updated');
+    }
 
 }
 
