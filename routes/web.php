@@ -39,9 +39,11 @@ Route::get('/todo', [TaskController::class, 'index'])->name('todo');
 
 // Task route
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
-//controlpanel route
+// Controlpanel route
 Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->name('controlpanel');
 
+// View task route
+Route::get('/tasks/{id}', [TaskController::class, 'view'])->name('tasks.view');
 
-
-
+// Delete task route
+Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.delete');

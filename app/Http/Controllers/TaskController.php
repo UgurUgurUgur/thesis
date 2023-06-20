@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 
 class TaskController extends Controller
 {
@@ -40,5 +41,28 @@ class TaskController extends Controller
          // redirection
     return redirect('/todo')->with('status', 'todo added');
     }
+
+    public function view($id)
+    {
+        $todo = Todo::find($id);
+        if ($todo) {
+            return view('viewTasks', compact('todo'));
+        } else {
+            // Handle the case when the task is not found
+            abort(404);
+        }
+    }
    
+    public function destroy($id): RedirectResponse
+    {
+        // Find the task by ID
+        $task = Todo::findOrFail($id);
+
+        // Delete the task
+        $task->delete();
+
+        // Redirect back to the todo page
+        return redirect()->route('todo')->with('status', 'Task deleted successfully');
+    }
+
 }

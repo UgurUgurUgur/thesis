@@ -12,9 +12,7 @@
 <section class="vh-100 gradient-custom-2">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">      
-       {{--  submit the form to the tasks store route action is always needed --}}
-      
+      <div class="col">
         <form action="{{route('tasks.store')}}" id="taskForm" action="{{route('tasks.store')}}" method="POST" class="d-flex justify-content-center align-items-center mb-1">
           @csrf
           <div class="form-outline flex-fill">
@@ -51,16 +49,17 @@
                             $middle='<span class="badge bg-warning">Middle priority</span>';
                             $low='<span class="badge bg-success">Low priority</span>';
                         @endphp
-                        <a href="" class="todolist">
-                            {{ $todo->task_title }}
+                        <a href="{{ route('tasks.view', ['id' => $todo->id]) }}" class="todolist">
+                            {{ $todo->task_title }} 
                             @if($todo->priority == "high") 
-                                {!! $high !!}
+                                {!! $high !!} 
                             @elseif($todo->priority == "middle")
                                 {!!$middle!!}
                             @elseif($todo->priority == "low")
                                 {!!$low!!}
                             @endif
                         </a>
+                        <a href="{{ route('tasks.delete', ['id' => $todo->id]) }}" class="delete-link"><i class="fa-solid fa-trash-can"></i>
                     @endforeach
                 </ul>
               @endif
