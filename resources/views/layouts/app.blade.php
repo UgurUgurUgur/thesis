@@ -23,6 +23,12 @@
         a.todolist:hover {
           background-color: #ffffff60;
       }
+
+      a.delete-link {
+          float: right;
+          margin-top: -27px;
+          margin-right: 13px;
+      }
   </style>
   
   </head>
