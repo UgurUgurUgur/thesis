@@ -103,4 +103,4 @@
     });
   });
 </script>
-<head><?php include 'footer.php'; ?></head>
+@include('layouts.footer')

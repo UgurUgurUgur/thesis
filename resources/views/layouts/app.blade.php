@@ -29,6 +29,14 @@
           margin-top: -27px;
           margin-right: 13px;
       }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 20px;
+    }
   </style>
   
   </head>
