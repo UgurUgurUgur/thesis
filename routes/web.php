@@ -43,6 +43,11 @@ Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
 Route::get('/profileEdit', [ProfileEditController::class, 'showProfileEditForm']);
 Route::post('/profileEdit', [ProfileEditController::class, 'profileEdit'])->name('profileEdit');
 
+Route::get('/changePassword', [ProfileEditController::class, 'showChangePasswordForm']);
+Route::post('/changePassword', [ProfileEditController::class, 'changePassword'])->name('changePassword');
+
+
+
 
 
 
