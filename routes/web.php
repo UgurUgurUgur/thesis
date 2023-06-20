@@ -7,6 +7,8 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\ControlpanelController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileEditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ use App\Http\Controllers\ControlpanelController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Auth::routes();
 // Registration Routes
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
@@ -39,8 +41,17 @@ Route::get('/todo', [TodoController::class, 'showTodoForm'])->name('todo');
 
 // Task route
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 //controlpanel route
 Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->name('controlpanel');
+
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+
+
+Route::get('/profileEdit', [ProfileEditController::class, 'showProfileEditForm']);
+Route::post('/profileEdit', [ProfileEditController::class, 'profileEdit'])->name('profileEdit');
+
+
 
 
 
