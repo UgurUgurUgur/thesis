@@ -6,6 +6,7 @@ use App\Models\Todo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -63,5 +64,27 @@ class TaskController extends Controller
 
         // Redirect back to the todo page
         return redirect()->route('todo')->with('status', 'Task deleted successfully');
+    }
+
+    public function complete($id)
+    {
+        // Make sure user is authenticated
+        if (!Auth::check()) {
+            return redirect()->route('login'); // Redirect to the login page if user is not authenticated
+        }
+
+        // Find the task by ID
+        $task = Todo::findOrFail($id);
+
+        // Increase the progress count for the authenticated user
+        $user = Auth::user();
+        $user->badge_progress += 1;
+        $user->save();
+
+        // Delete the task
+        $task->delete();
+
+        // Redirect back to the todo page
+        return redirect()->route('todo')->with('completed', true);
     }
 }

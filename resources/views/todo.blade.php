@@ -59,7 +59,13 @@
                                 {!!$low!!}
                             @endif
                         </a>
-                        <a href="{{ route('tasks.delete', ['id' => $todo->id]) }}" class="delete-link"><i class="fa-solid fa-trash-can"></i>
+                        <a href="{{route('tasks.delete', ['id' => $todo->id]) }}" class="delete-link"><i class="fa-solid fa-trash-can"></i>
+                        <a href="{{route('tasks.complete', ['id' => $todo->id]) }}" class="complete-link"><i class="fa-regular fa-square-check"></i>
+                          <div id="successToast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-body">
+                                Task completed successfully.
+                            </div>
+                        </div>
                     @endforeach
                 </ul>
               @endif

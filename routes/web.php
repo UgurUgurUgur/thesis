@@ -7,6 +7,8 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\ControlpanelController;
+use App\Http\Controllers\AboutUsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +49,9 @@ Route::get('/tasks/{id}', [TaskController::class, 'view'])->name('tasks.view');
 
 // Delete task route
 Route::get('/tasksdelete/{id}', [TaskController::class, 'destroy'])->name('tasks.delete');
+
+// Complete task route
+Route::get('/tasks/complete/{id}', [TaskController::class, 'complete'])->name('tasks.complete');
+
+// About us route
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
