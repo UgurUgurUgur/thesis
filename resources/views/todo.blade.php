@@ -7,6 +7,7 @@
         {{ session('status') }}
     </div>
 @endif
+@include('includes.navigation')
 @section('content')
 <head>
 <section class="vh-100 gradient-custom-2">

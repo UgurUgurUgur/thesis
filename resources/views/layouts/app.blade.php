@@ -64,9 +64,9 @@
       }
 
       .top-right {
-        position: absolute;
-        top: 10px;
-        right: 10px;
+          position: absolute;
+          top: 10px;
+          right: 10px;
       }
 
       .top-left {
@@ -88,8 +88,6 @@
       .nav-button i {
           margin-right: 5px;
       }
-
-
 
 </style>
   
