@@ -53,5 +53,8 @@ Route::get('/tasksdelete/{id}', [TaskController::class, 'destroy'])->name('tasks
 // Complete task route
 Route::get('/tasks/complete/{id}', [TaskController::class, 'complete'])->name('tasks.complete');
 
-// About us route
+// About-us route
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
+
+// Home route
+Route::get('/', 'HomeController@index')->name('home');
