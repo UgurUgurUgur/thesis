@@ -1,12 +1,19 @@
+<head>
+    <link rel="stylesheet" href="{{ asset('styles.css') }}">
+    <style>
+        body {
+            background: #7e40f6;
+            background: -webkit-linear-gradient(to right, rgba(126, 64, 246, 1), rgba(80, 139, 252, 1));
+            background: linear-gradient(to right, rgba(126, 64, 246, 1), rgba(80, 139, 252, 1));
+        }
+    </style>
+</head>
+@extends('layouts.app')
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="{{ asset('styles.css') }}">
     <style>
-        body {
-            background: #ffffff;
-        }
-
         .container {
             display: flex;
             justify-content: center;
@@ -19,24 +26,25 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: #7e40f6;
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
             color: #ffffff;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 32px;
             font-weight: bold;
             transition: transform 0.3s ease;
         }
 
         .button:hover {
             transform: scale(1.1);
+            color: #600aeb; /* Change the text color on hover */
         }
 
         .button i {
             margin-bottom: 10px;
-            font-size: 48px;
+            font-size: 64px;
         }
     </style>
 </head>

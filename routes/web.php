@@ -8,7 +8,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\ControlpanelController;
 use App\Http\Controllers\AboutUsController;
-
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +57,4 @@ Route::get('/tasks/complete/{id}', [TaskController::class, 'complete'])->name('t
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 
 // Home route
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
