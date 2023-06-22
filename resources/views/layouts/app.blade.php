@@ -169,8 +169,214 @@
             font-size: 19px;
         }
 
+        .music-player {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          display: flex;
+          align-items: flex-end;
+        }
+
+        .play-button {
+          background-color: #ffffff00;
+          color: #ffffff;
+          border: none;
+          padding: 10px;
+          border-radius: 50%;
+          font-size: 24px;
+          margin-right: 10px;
+        }
+
+        .play-button {
+        background-color: #ffffff00;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        font-size: 24px;
+      }
+
+      .play-button:hover {
+        color: #0a58ca;
+      }
+
+      .music-player {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center; /* Updated */
+      }
+
+      .play-button {
+        background-color: #ffffff00;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        font-size: 24px;
+        margin-right: 10px; /* Added */
+      }
+
+      .volume-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .volume-slider {
+        width: 50px; /* Adjust width as needed */
+        height: 10px; /* Adjust height as needed */
+        background-color: rgba(255, 255, 255, 0.502);
+        border-radius: 5px;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        margin-left: 10px; /* Updated */
+        transform: rotate(0deg); /* Updated */
+      }
+
+      .volume-slider::-webkit-slider-thumb {
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        background-color: white;
+        border-radius: 35%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .volume-icon {
+        color: white;
+        font-size: 24px;
+        margin-top: 5px; /* Added */
+      }
+
+      .glowing-header {
+        animation: glowing 2s linear infinite;
+      }
+
+      @keyframes glowing {
+        0% {
+          color: white;
+          text-shadow: 0 0 10px #fff;
+        }
+        50% {
+          color: #ffffff00;
+          text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
+        }
+        100% {
+          color: white;
+          text-shadow: 0 0 10px #fff;
+        }
+      }
+
+      .speech-box {
+        position: relative;
+        display: inline-block;
+        background-color: #ffffff6f;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+        max-width: 200px;
+      }
+
+      .speech-box::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -10px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent #ffffff transparent;
+      }
+
+      .text-center:nth-child(even) .speech-box::after {
+        left: auto;
+        right: 50%;
+        margin-left: 0;
+        margin-right: -10px;
+        border-color: transparent transparent transparent #ffffff;
+      }
+
+      .developer-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+      }
+
+      .developer-image {
+        margin-right: 20px;
+      }
+
+      .developer-image-ugu {
+        margin-left: 20px;
+      }
+
+      .speech-box-right {
+        background-color: #f8f9fa57;
+        color: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: left;
+        max-width: 800px;
+      }
+
+      .speech-box-right .highlight {
+        background-image: linear-gradient(to right, #0c54da, #9714d3);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .speech-box-right .highlight {
+        background-image: linear-gradient(to right, #0c54da, #9714d3);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      .speech-box-right .rgb-scroll {
+        animation: rgbScroll 2s linear infinite;
+      }
+
+      @keyframes rgbScroll {
+        0% {
+          color: rgb(255, 0, 0);
+        }
+        33% {
+          color: rgb(0, 255, 0);
+        }
+        66% {
+          color: rgb(0, 0, 255);
+        }
+        100% {
+          color: rgb(255, 0, 0);
+      }
+    }
+
 </style>
-  
+<script type="text/javascript">
+const rgbScrollElements = document.querySelectorAll('.rgb-scroll');
+
+rgbScrollElements.forEach(element => {
+  const text = element.textContent;
+  const colors = ['red', 'green', 'blue'];
+  let html = '';
+
+  for (let i = 0; i < text.length; i++) {
+    const color = colors[i % colors.length];
+    html += `<span style="color: ${color}">${text[i]}</span>`;
+  }
+
+  element.innerHTML = html;
+});
+</script>
+
   </head>
   <body>
    

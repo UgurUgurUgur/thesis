@@ -1,3 +1,4 @@
+@include('includes.music')
 <div class="top-right">
     <a href="{{ route('home') }}" class="nav-button"><i class="fa-solid fa-house"></i>Home</a>
     <a href="{{ route('todo') }}" class="nav-button"><i class="fa-solid fa-list-check"></i>My Tasks</a>
