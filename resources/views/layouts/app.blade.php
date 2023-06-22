@@ -89,6 +89,86 @@
           margin-right: 5px;
       }
 
+      body {
+            background: #7e40f6;
+            background: -webkit-linear-gradient(to right, rgba(126, 64, 246, 1), rgba(80, 139, 252, 1));
+            background: linear-gradient(to right, rgba(126, 64, 246, 1), rgba(80, 139, 252, 1));
+            color: #ffffff;
+        }
+
+        .gradient-custom-2 {
+            background-color: transparent;
+        }
+
+        .text-black {
+            color: #000000;
+        }
+        
+        .task-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 1px;
+        }
+
+        .priority {
+            margin-bottom: 50px;
+        }
+
+        .description-container {
+            margin-bottom: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .badge {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .bg-danger {
+            background-color: #dc3545;
+        }
+
+        .bg-warning {
+            background-color: #ffc107;
+        }
+
+        .bg-success {
+            background-color: #28a745;
+        }
+
+        .description-label {
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .description-text {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .return-button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #000000;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .return-button:hover {
+            opacity: 0.9;
+        }
+
+        .return-button i {
+            font-size: 19px;
+        }
+
 </style>
   
   </head>
