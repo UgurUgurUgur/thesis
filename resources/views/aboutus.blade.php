@@ -19,7 +19,9 @@
           <div class="row">
             <div class="col-md-6 offset-md-3">
               <h2 class="text-black">Program Purpose and Features</h2>
-              <p class="text-black">Our program aims to help people keep track of their tasks and jobs more efficiently. With our user-friendly interface, users can easily add tasks and set priorities to manage their workload effectively. The program provides the following features:</p>
+              <p class="text-black">Our program aims to help people keep track of their tasks and jobs more efficiently. With our user-
+                friendly interface, users can easily add tasks and set priorities to manage their workload effectively. The program 
+                provides the following features:</p>
               <ul class="text-black">
                 <li>Task creation and management</li>
                 <li>Priority assignment for tasks</li>
@@ -29,8 +31,10 @@
           </div>
           <div class="row mt-5">
             <div class="col-md-6 offset-md-3">
-              <h2 class="text-black">Thesis Project</h2>
-              <p class="text-black">Our task management program was developed as part of our thesis project for school. It showcases our skills and knowledge in software development and project management. We are proud to present this program as a solution to enhance productivity and task organization.</p>
+              <h2 class="text-black">The Project</h2>
+              <p class="text-black">TaskTrackerPro, our task management program, was developed as part of our thesis project for school. 
+                It showcases our skills and knowledge in software development and project management. We are proud to present this 
+                program as a solution to enhance productivity and task organization.</p>
             </div>
           </div>
           <div class="row mt-5">
