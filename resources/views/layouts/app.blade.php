@@ -37,22 +37,22 @@
       }
 
       .developer-img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
       }
 
       .mask-custom {
-      background: rgba(24, 24, 16, 0.2);
-      border-radius: 2em;
-      backdrop-filter: blur(25px);
-      border: 2px solid rgba(255, 255, 255, 0.05);
-      background-clip: padding-box;
-      box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+        background: rgba(24, 24, 16, 0.2);
+        border-radius: 2em;
+        backdrop-filter: blur(25px);
+        border: 2px solid rgba(255, 255, 255, 0.05);
+        background-clip: padding-box;
+        box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
       }
 
       .fa-beat {
-      animation: beat 0.7s infinite alternate;
+        animation: beat 0.7s infinite alternate;
       }
       @keyframes beat {
         from {
@@ -62,6 +62,33 @@
           transform: scale(1.2);
         }
       }
+
+      .top-right {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      .top-left {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+      }
+
+      .nav-button {
+          display: inline-block;
+          margin-right: 10px;
+          padding: 5px;
+          color: #ffffff;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: bold;
+      }
+
+      .nav-button i {
+          margin-right: 5px;
+      }
+
 
 
 </style>

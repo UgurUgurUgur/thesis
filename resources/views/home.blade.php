@@ -8,6 +8,8 @@
         }
     </style>
 </head>
+@include('includes.navigation')
+@yield('content')
 @extends('layouts.app')
 <!DOCTYPE html>
 <html>
@@ -50,7 +52,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="#" class="button">
+        <a href="/todo" class="button">
             <i class="fa-solid fa-list-check"></i>
             Create Tasks
         </a>
