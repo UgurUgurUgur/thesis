@@ -340,6 +340,16 @@
         font-style: italic;
       }
 
+      .speech-box .highlight {
+        background-image: linear-gradient(to right, #0c54da, #9714d3);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        font-weight: bold;
+        font-style: italic;
+        text-align: center;
+      }
+      
       .speech-box-right .rgb-scroll {
         animation: rgbScroll 2s linear infinite;
       }
@@ -379,7 +389,7 @@ rgbScrollElements.forEach(element => {
 
   </head>
   <body>
-   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   @yield('content')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>

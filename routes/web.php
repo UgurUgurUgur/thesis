@@ -9,6 +9,7 @@ use App\Http\Controllers\TodoController;
 use App\Http\Controllers\ControlpanelController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OpenAIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,5 @@ Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 
 // Home route
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::post('/openai', [OpenAIController::class, 'index'])->name('openai.index');
