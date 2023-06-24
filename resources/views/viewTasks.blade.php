@@ -29,9 +29,11 @@
                         <a href="{{ route('todo') }}" class="return-button"><i class="fa-regular fa-square-caret-left"></i> <span style="font-weight: bold;">Return to Todo List</span></a>
                     </div>
                     <button id="chatBtn" class="btn btn-primary">Call for AI's help</button>
-                    <div class="speech-box-right">
-                        <p><span class="highlight">""</span></p>
-                      </div>
+                    <div class="textbox-container">
+                        <div class="textbox">
+                          <span id="chatResponse"></span>
+                        </div>
+                      </div>                                        
                 </div>
             </div>
         </div>
@@ -40,37 +42,34 @@
 @endsection
 
 @section('scripts')
-<script>
-    document.getElementById("chatBtn").addEventListener("click", function() {
-        var chatbox = document.getElementById("responseContainer");
-        chatbox.innerHTML = "Loading...";
+    <script>
+        document.getElementById("chatBtn").addEventListener("click", function() {
+            // Make API call to OpenAIController's index method using AJAX
+            var taskTitle = "{{ $todo->task_title }}";
+            var description = "{{ $todo->description }}";
+    
+            var data = {
+                task_title: taskTitle,
+                description: description
+            };
+    
+            // Send an AJAX request
+            console.log("Sending AJAX request...");
 
-        // Make API call to OpenAIController's index method using AJAX
-        var taskTitle = "{{ $todo->task_title }}";
-        var description = "{{ $todo->description }}";
-
-        var data = {
-            task_title: taskTitle,
-            description: description
-        };
-
-        // Send an AJAX request
-        $.ajax({
-            url: "{{ route('openai.index') }}",
-            type: "POST",
-            dataType: "json",
-            data: data,
-            success: function(response) {
-                // Extract the chat message from the response
-                var message = response.choices[0].message.content;
-
-                // Update the chatbox with the message
-                chatbox.innerHTML = message;
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
+            $.ajax({
+                url: "{{ route('openai.index') }}",
+                type: "POST",
+                dataType: "json",
+                data: data,
+                success: function(response) {
+                    console.log(response);
+                    // Display the response in the textbox
+                    document.getElementById("chatResponse").innerHTML = response.choices[0].message.content;
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
         });
-    });
-</script>
+    </script>
 @endsection

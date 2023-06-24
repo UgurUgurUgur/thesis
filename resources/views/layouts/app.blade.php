@@ -340,16 +340,6 @@
         font-style: italic;
       }
 
-      .speech-box .highlight {
-        background-image: linear-gradient(to right, #0c54da, #9714d3);
-        color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
-        font-weight: bold;
-        font-style: italic;
-        text-align: center;
-      }
-      
       .speech-box-right .rgb-scroll {
         animation: rgbScroll 2s linear infinite;
       }
@@ -368,6 +358,29 @@
           color: rgb(255, 0, 0);
       }
     }
+
+        .textbox-container {
+          display: flex;
+          justify-content: center;
+        }
+
+        .textbox {
+          background-color: #f8f9fa57;
+          color: #ffffff;
+          padding: 15px;
+          border-radius: 10px;
+          text-align: left;
+          max-width: 800px;
+        }
+
+        .textbox .highlight {
+          background-image: linear-gradient(to right, #0c54da, #9714d3);
+          color: transparent;
+          -webkit-background-clip: text;
+          background-clip: text;
+          font-weight: bold;
+          font-style: italic;
+        }
 
 </style>
 <script type="text/javascript">
