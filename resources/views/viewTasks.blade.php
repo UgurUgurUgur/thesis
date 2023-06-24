@@ -24,19 +24,28 @@
                         </p>
                         <div class="description-container">
                             <p class="description-label">Description:</p>
-                            <p class="description-text">{{ $todo->description }}</p>
+                            <p class="description-text">{{ $todo->description}}</p>
+                            <p class="description-label">Ai's reccomendation:</p>
+                            <p>{{ $response ?? 'No response from the API' }}</p>
                         </div>
                         <a href="{{ route('todo') }}" class="return-button"><i class="fa-regular fa-square-caret-left"></i> <span style="font-weight: bold;">Return to Todo List</span></a>
                     </div>
-                    <button id="chatBtn" class="btn btn-primary">Call for AI's help</button>
-                    <div class="textbox-container">
-                        <div class="textbox">
-                          <span id=$chatGptResponse></span>
-                        </div>
-                      </div>                                        
                 </div>
             </div>
         </div>
     </div>
+    <p>{{ $response ?? 'No response from the API' }}</p>
 </section>
 @endsection
+
+{{-- <!DOCTYPE html>
+<html>
+<head>
+    <title>View Task</title>
+</head>
+<body>
+    <h1>Task Solution</h1>
+    
+    <p>{{ $response ?? 'No response from the API' }}</p>
+</body>
+</html>  --}}
