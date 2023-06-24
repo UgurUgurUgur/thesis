@@ -4,36 +4,33 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Http\JsonResponse;
+use App\Models\Todo;
 
 class OpenAIController extends Controller
 {
-    public function index(Request $request): JsonResponse
+    // Handle the form submission
+    public function handleFormSubmission(Request $request)
     {
-        $taskTitle = $request->input('task_title');
-        $description = $request->input('description');
+        // Get the input from the form
+        $userInput = $request->input('user_input');
 
-        $q_search = "How can I do this task efficiently? My task is ${taskTitle} and this is its description: ${description}. If you need more clarity, ask me the question: Could you describe your task please?";
+        // Get the description from the database
+        $description = Todo::pluck('description')->first();
+        $task_title = Todo::pluck('task_title')->first();
 
-        $data = Http::withHeaders([
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . env('OPENAI_API_KEY'),
-        ])->post("https://api.openai.com/v1/chat/completions", [
-            "model" => "gpt-3.5-turbo",
-            "messages" => [
-                [
-                    "role" => "user",
-                    "content" => $q_search
-                ]
-            ],
-            "temperature" => 0.5,
-            "max_tokens" => 200,
-            "top_p" => 1.0,
-            "frequency_penalty" => 0.52,
-            "presence_penalty" => 0.5,
-            "stop" => ["11."]
-        ])->json();
+        // Combine the user input and description as the prompt
+        $prompt = "How can I do this task the most efficient way? This is the description of my task:" . $description;
 
-        return response()->json($data, 200, [], JSON_PRETTY_PRINT);
+        // Send the prompt to the ChatGPT API
+        $response = Http::post('https://api.openai.com/v1/engines/davinci-codex/completions', [
+            'prompt' => $prompt,
+            'max_tokens' => 100,
+        ])->throw();
+
+        // Get the generated response from the API
+        $chatGptResponse = $response['choices'][0]['text'];
+
+        return view('viewTasks', ['response' => $chatGptResponse]);
     }
+
 }

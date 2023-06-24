@@ -31,7 +31,7 @@
                     <button id="chatBtn" class="btn btn-primary">Call for AI's help</button>
                     <div class="textbox-container">
                         <div class="textbox">
-                          <span id="chatResponse"></span>
+                          <span id=$chatGptResponse></span>
                         </div>
                       </div>                                        
                 </div>
@@ -39,37 +39,4 @@
         </div>
     </div>
 </section>
-@endsection
-
-@section('scripts')
-    <script>
-        document.getElementById("chatBtn").addEventListener("click", function() {
-            // Make API call to OpenAIController's index method using AJAX
-            var taskTitle = "{{ $todo->task_title }}";
-            var description = "{{ $todo->description }}";
-    
-            var data = {
-                task_title: taskTitle,
-                description: description
-            };
-    
-            // Send an AJAX request
-            console.log("Sending AJAX request...");
-
-            $.ajax({
-                url: "{{ route('openai.index') }}",
-                type: "POST",
-                dataType: "json",
-                data: data,
-                success: function(response) {
-                    console.log(response);
-                    // Display the response in the textbox
-                    document.getElementById("chatResponse").innerHTML = response.choices[0].message.content;
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                }
-            });
-        });
-    </script>
 @endsection
