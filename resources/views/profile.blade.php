@@ -13,7 +13,7 @@
                         <p><strong>Email:</strong> {{ $user->email }}</p>
                         <p><strong>Created At: {{$user->created_at}}</strong></p>
 
-                        <a href="/profileEdit" class="btn btn-primary">Edit Profile</a>
+                        <a href="/profileEdit" class="btn btn-primary">Edit Profile</a> <a href="/changePassword" class="btn btn-primary">Change Password</a>
                     </div>
                 </div>
             </div>
