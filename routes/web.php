@@ -34,7 +34,7 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
 // Logout Route
-Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 // Todo Route
 Route::get('/todo', [TodoController::class, 'showTodoForm'])->name('todo');
@@ -50,6 +50,11 @@ Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
 
 Route::get('/profileEdit', [ProfileEditController::class, 'showProfileEditForm']);
 Route::post('/profileEdit', [ProfileEditController::class, 'profileEdit'])->name('profileEdit');
+
+Route::get('/changePassword', [ProfileEditController::class, 'showChangePasswordForm']);
+Route::post('/changePassword', [ProfileEditController::class, 'changePassword'])->name('changePassword');
+
+
 
 
 
