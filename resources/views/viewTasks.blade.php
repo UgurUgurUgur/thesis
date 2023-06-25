@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('includes.navigation')
 @section('content')
 <section class="vh-100 gradient-custom-2">
     <div class="container py-5 h-100">
@@ -34,7 +34,6 @@
             </div>
         </div>
     </div>
-    <p>{{ $response ?? 'No response from the API' }}</p>
 </section>
 @endsection
 
