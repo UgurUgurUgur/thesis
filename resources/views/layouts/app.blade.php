@@ -356,12 +356,31 @@
         }
         100% {
           color: rgb(255, 0, 0);
-        }
       }
+    }
 
-      .card.bg-dark {
-          color: rgba(0, 0, 0, 0.5);
-      }
+        .textbox-container {
+          display: flex;
+          justify-content: center;
+        }
+
+        .textbox {
+          background-color: #f8f9fa57;
+          color: #ffffff;
+          padding: 15px;
+          border-radius: 10px;
+          text-align: left;
+          max-width: 800px;
+        }
+
+        .textbox .highlight {
+          background-image: linear-gradient(to right, #0c54da, #9714d3);
+          color: transparent;
+          -webkit-background-clip: text;
+          background-clip: text;
+          font-weight: bold;
+          font-style: italic;
+        }
 
 </style>
 <script type="text/javascript">
@@ -383,8 +402,8 @@ rgbScrollElements.forEach(element => {
 
   </head>
   <body>
-   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   @yield('content')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>

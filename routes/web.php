@@ -7,6 +7,9 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\ControlpanelController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OpenAIController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileEditController;
 
@@ -37,26 +40,26 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 // Todo Route
-Route::get('/todo', [TodoController::class, 'showTodoForm'])->name('todo');
+Route::get('/todo', [TaskController::class, 'index'])->name('todo');
 
 // Task route
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
-Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
-//controlpanel route
+// Controlpanel route
 Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->name('controlpanel');
 
-Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+// View task route
+Route::get('/tasks/{id}', [TaskController::class, 'view'])->name('tasks.view');
 
+// Delete task route
+Route::get('/tasksdelete/{id}', [TaskController::class, 'destroy'])->name('tasks.delete');
 
-Route::get('/profileEdit', [ProfileEditController::class, 'showProfileEditForm']);
-Route::post('/profileEdit', [ProfileEditController::class, 'profileEdit'])->name('profileEdit');
+// Complete task route
+Route::get('/tasks/complete/{id}', [TaskController::class, 'complete'])->name('tasks.complete');
 
-Route::get('/changePassword', [ProfileEditController::class, 'showChangePasswordForm']);
-Route::post('/changePassword', [ProfileEditController::class, 'changePassword'])->name('changePassword');
+// About-us route
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 
+// Home route
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
-
-
-
-
+Route::post('/openai', [OpenAIController::class, 'index'])->name('openai.index');
