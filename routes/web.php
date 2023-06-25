@@ -10,6 +10,8 @@ use App\Http\Controllers\ControlpanelController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OpenAIController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileEditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,7 @@ use App\Http\Controllers\OpenAIController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Auth::routes();
 // Registration Routes
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
@@ -35,7 +37,7 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
 // Logout Route
-Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 // Todo Route
 Route::get('/todo', [TaskController::class, 'index'])->name('todo');
