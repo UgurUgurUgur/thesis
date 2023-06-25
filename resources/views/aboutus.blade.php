@@ -77,8 +77,8 @@
                   <div class="speech-box-right">
                     <p><span class="highlight">"In this backend project, I've grown immensely. Creating an intuitive task tracking platform with motivating badges 
                       taught me the value of the right tools. Overcoming database challenges strengthened my skills, while designing a satisfying user interface 
-                      brought joy. Integrating the ChatGPT API expanded our capabilities. Perseverance in problem-solving was crucial. This transformative 
-                      experience emphasized empathy in development. Proud of our impact, I'm excited for future endeavors.""
+                      brought joy. Perseverance in problem-solving was crucial. This transformative 
+                      experience emphasized empathy in development. Proud of our impact, I'm excited for future endeavors."
                     </span></p>
                   </div>
                 </div>
