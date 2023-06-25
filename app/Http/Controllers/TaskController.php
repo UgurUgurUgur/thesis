@@ -76,11 +76,6 @@ class TaskController extends Controller
         // Find the task by ID
         $task = Todo::findOrFail($id);
 
-        // Increase the progress count for the authenticated user
-        $user = Auth::user();
-        $user->badge_progress += 1;
-        $user->save();
-
         // Delete the task
         $task->delete();
 
