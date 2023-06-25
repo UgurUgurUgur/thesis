@@ -44,6 +44,7 @@ Route::get('/todo', [TaskController::class, 'index'])->name('todo');
 
 // Task route
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+
 // Controlpanel route
 Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->name('controlpanel');
 
@@ -62,4 +63,8 @@ Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 // Home route
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// Route ai
 Route::post('/openai', [OpenAIController::class, 'index'])->name('openai.index');
+
+// Profile route
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
