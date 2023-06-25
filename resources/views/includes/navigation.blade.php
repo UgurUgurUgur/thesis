@@ -6,6 +6,6 @@
 </div>
 
 <div class="top-left">
-    <a href="#" class="nav-button"><i class="fa-solid fa-user"></i>Profile</a>
+    <a href="/profile" class="nav-button"><i class="fa-solid fa-user"></i>Profile</a>
     <a href="{{ route('logout') }}" class="nav-button"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
 </div>

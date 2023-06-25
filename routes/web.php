@@ -47,6 +47,8 @@ Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 // Controlpanel route
 Route::get('/controlpanel', [ControlpanelController::class, 'controlpanel'])->name('controlpanel');
 
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+
 // View task route
 Route::get('/tasks/{id}', [TaskController::class, 'view'])->name('tasks.view');
 
